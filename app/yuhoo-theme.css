@@ -33,6 +33,11 @@
   --radius:var(--yuhoo-radius-control);
 }
 body{background:var(--yuhoo-background);color:var(--yuhoo-text)}
+.authority-hero{padding-top:clamp(3rem,6vw,5rem);padding-bottom:clamp(2.5rem,5vw,4rem)}
+.authority-hero h1{font-size:clamp(2.25rem,4.5vw,4rem);line-height:1.12;color:var(--yuhoo-text);text-wrap:balance;overflow-wrap:break-word}
+.authority-hero>p,.authority-body p{color:var(--yuhoo-text-muted)}
+.authority-body h2{font-size:clamp(1.5rem,2.8vw,2.25rem);line-height:1.25;color:var(--yuhoo-text)}
+.authority-cta{background:var(--yuhoo-primary);border-radius:var(--yuhoo-radius-panel)}
 h1,h2,.price strong{font-family:var(--font-sans),Arial,sans-serif;font-weight:700;letter-spacing:-.045em}
 h1,h2,h3,strong,.button{font-variation-settings:normal}
 header{background:#fffffff2;border-color:var(--yuhoo-border)}
