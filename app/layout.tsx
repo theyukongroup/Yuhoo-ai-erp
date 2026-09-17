@@ -9,6 +9,7 @@ import {
 } from '@/components/language-runtime';
 import { SITE_URL } from '@/lib/seo';
 import { chatGPTSignInPath, getChatGPTUser } from '@/app/chatgpt-auth';
+import { isBootstrapAdminEmail } from '@/lib/auth';
 import { MobileNavigation } from '@/components/mobile-navigation';
 import { isLocale, languageTags } from '@/lib/i18n';
 import './globals.css';
@@ -122,10 +123,20 @@ export default async function RootLayout({
           <LanguageSelector />
           <a
             className="member-header-link"
-            href={member ? '/account' : chatGPTSignInPath('/account')}
+            href={
+              member
+                ? isBootstrapAdminEmail(member.email)
+                  ? '/admin'
+                  : '/account'
+                : chatGPTSignInPath('/account')
+            }
             target={member ? undefined : '_top'}
           >
-            {member ? 'My Account' : 'Sign In'}
+            {member
+              ? isBootstrapAdminEmail(member.email)
+                ? 'Admin'
+                : 'My Account'
+              : 'Sign In'}
           </a>
           <a className="nav-cta desktop-assessment" href="/assessment">
             Get Your Assessment <ArrowUpRight size={16} />

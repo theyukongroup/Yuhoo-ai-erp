@@ -2,6 +2,9 @@ import { requireAdminActor } from '@/lib/admin-auth';
 import { memberDB, parseJSON } from '@/lib/member-db';
 
 export const dynamic = 'force-dynamic';
+// Fail fast rather than holding a database connection for the platform's
+// five-minute default when a query is blocked.
+export const maxDuration = 30;
 const json = (data: unknown, status = 200) =>
   Response.json(data, { status, headers: { 'Cache-Control': 'no-store' } });
 const statuses = [

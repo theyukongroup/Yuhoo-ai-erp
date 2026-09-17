@@ -33,7 +33,10 @@ const connect = () => {
     // Supabase's transaction pooler (port 6543) cannot use prepared statements.
     prepare: false,
     ssl: 'require',
-    max: 5,
+    // One connection per instance. A serverless function serves one request at
+    // a time, and a larger pool only pins more pooler connections when the
+    // platform freezes an instance mid-query.
+    max: 1,
     idle_timeout: 20,
     connect_timeout: 10,
     // count(*) and other int8 results come back as numbers, as they do on D1.
@@ -50,6 +53,38 @@ const connect = () => {
 type Sql = ReturnType<typeof connect>;
 let client: Sql | undefined;
 const sql = () => (client ??= connect());
+
+const QUERY_TIMEOUT_MS = 20_000;
+
+/**
+ * Nothing in this schema should take twenty seconds. If something does, it is
+ * blocked on a lock rather than slow, so drop the connection: that aborts the
+ * statement server-side instead of leaving a transaction pinned in the pooler
+ * until the platform kills the function minutes later, which is what made one
+ * stuck admin request wedge every later one.
+ */
+async function withTimeout<T>(work: Promise<T>, statement: string): Promise<T> {
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  try {
+    return await Promise.race([
+      work,
+      new Promise<never>((_, reject) => {
+        timer = setTimeout(() => {
+          const stuck = client;
+          client = undefined;
+          void stuck?.end({ timeout: 0 }).catch(() => undefined);
+          reject(
+            new Error(
+              `Database statement exceeded ${QUERY_TIMEOUT_MS}ms and was abandoned: ${statement.slice(0, 120)}`,
+            ),
+          );
+        }, QUERY_TIMEOUT_MS);
+      }),
+    ]);
+  } finally {
+    if (timer) clearTimeout(timer);
+  }
+}
 
 let schemaCheck: Promise<void> | undefined;
 function schemaReady() {
@@ -103,13 +138,13 @@ class Statement implements D1PreparedStatement {
 
   async first<T = Row>(): Promise<T | null> {
     await schemaReady();
-    const rows = await this.query(sql());
+    const rows = await withTimeout(this.query(sql()), this.source);
     return (rows[0] as T | undefined) ?? null;
   }
 
   async all<T = Row>(): Promise<D1Result<T>> {
     await schemaReady();
-    return toResult<T>(await this.query(sql()));
+    return toResult<T>(await withTimeout(this.query(sql()), this.source));
   }
 
   run<T = Row>(): Promise<D1Result<T>> {
@@ -130,7 +165,10 @@ const database: D1Database = {
     });
     await schemaReady();
     // Like D1: pipelined in one transaction, all or nothing.
-    const rowsets = await sql().begin((tx) => list.map((statement) => statement.query(tx)));
+    const rowsets = await withTimeout(
+      sql().begin((tx) => list.map((statement) => statement.query(tx))),
+      `batch of ${list.length} statements`,
+    );
     return rowsets.map((rows) => toResult<T>(rows));
   },
 };

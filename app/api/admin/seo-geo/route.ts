@@ -3,6 +3,9 @@ import { ensureMemberSchema, memberDB, parseJSON } from '@/lib/member-db';
 import { ensureSeoGeoSeed } from '@/lib/seo-geo-data';
 
 export const dynamic='force-dynamic';
+// Fail fast rather than holding a database connection for the platform's
+// five-minute default when a query is blocked.
+export const maxDuration = 30;
 type Row=Record<string,any>;
 const json=(data:unknown,status=200)=>Response.json(data,{status,headers:{'Cache-Control':'no-store'}});
 const clean=(v:unknown,max=2000)=>String(v??'').trim().slice(0,max);

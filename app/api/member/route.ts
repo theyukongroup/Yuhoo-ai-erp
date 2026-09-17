@@ -2,6 +2,9 @@ import { getChatGPTUser } from '@/app/chatgpt-auth';
 import { ensureMemberSchema, memberDB, parseJSON } from '@/lib/member-db';
 
 export const dynamic = 'force-dynamic';
+// Fail fast. The platform default is five minutes, which turned one blocked
+// query into a request that held a database connection for that entire time.
+export const maxDuration = 30;
 const json = (data: unknown, status = 200) =>
   Response.json(data, { status, headers: { 'Cache-Control': 'no-store' } });
 async function auth() {
@@ -13,13 +16,27 @@ async function auth() {
     .bind(user.id)
     .first<{ account_status: string }>();
   if (administration?.account_status === 'suspended') return null;
+  // Read before writing. This ran on every member request, and repeating the
+  // same-row upsert made concurrent requests queue on its row lock until the
+  // function timed out.
+  const existing = await memberDB()
+    .prepare('SELECT email FROM member_profiles WHERE user_id=?')
+    .bind(user.id)
+    .first<{ email: string }>();
   const now = new Date().toISOString();
-  await memberDB()
-    .prepare(
-      'INSERT INTO member_profiles (user_id,email,created_at,updated_at) VALUES (?,?,?,?) ON CONFLICT(user_id) DO UPDATE SET email=excluded.email,updated_at=excluded.updated_at',
-    )
-    .bind(user.id, user.email, now, now)
-    .run();
+  if (!existing) {
+    await memberDB()
+      .prepare(
+        'INSERT INTO member_profiles (user_id,email,created_at,updated_at) VALUES (?,?,?,?) ON CONFLICT(user_id) DO UPDATE SET email=excluded.email,updated_at=excluded.updated_at',
+      )
+      .bind(user.id, user.email, now, now)
+      .run();
+  } else if (existing.email !== user.email) {
+    await memberDB()
+      .prepare('UPDATE member_profiles SET email=?,updated_at=? WHERE user_id=?')
+      .bind(user.email, now, user.id)
+      .run();
+  }
   return user;
 }
 
