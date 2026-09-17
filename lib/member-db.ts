@@ -63,6 +63,23 @@ const QUERY_TIMEOUT_MS = 20_000;
  * until the platform kills the function minutes later, which is what made one
  * stuck admin request wedge every later one.
  */
+let queue: Promise<unknown> = Promise.resolve();
+
+/**
+ * Run statements one at a time. With a single connection, postgres.js would
+ * otherwise pipeline concurrent queries down it, and Supabase's
+ * transaction-mode pooler stalls on that - the SEO/GEO route fires eleven at
+ * once and hung. Sequential costs a few hundred milliseconds and is reliable.
+ */
+function serialize<T>(work: () => Promise<T>): Promise<T> {
+  const result = queue.then(work, work);
+  queue = result.then(
+    () => undefined,
+    () => undefined,
+  );
+  return result;
+}
+
 async function withTimeout<T>(work: Promise<T>, statement: string): Promise<T> {
   let timer: ReturnType<typeof setTimeout> | undefined;
   try {
@@ -89,8 +106,10 @@ async function withTimeout<T>(work: Promise<T>, statement: string): Promise<T> {
 let schemaCheck: Promise<void> | undefined;
 function schemaReady() {
   schemaCheck ??= (async () => {
-    const rows = await sql().unsafe<{ tablename: string }[]>(
-      "select tablename from pg_catalog.pg_tables where schemaname = 'public'",
+    const rows = await serialize(() =>
+      sql().unsafe<{ tablename: string }[]>(
+        "select tablename from pg_catalog.pg_tables where schemaname = 'public'",
+      ),
     );
     const present = new Set(rows.map((row) => row.tablename));
     const missing = memberTables.filter((table) => !present.has(table));
@@ -138,13 +157,13 @@ class Statement implements D1PreparedStatement {
 
   async first<T = Row>(): Promise<T | null> {
     await schemaReady();
-    const rows = await withTimeout(this.query(sql()), this.source);
+    const rows = await serialize(() => withTimeout(this.query(sql()), this.source));
     return (rows[0] as T | undefined) ?? null;
   }
 
   async all<T = Row>(): Promise<D1Result<T>> {
     await schemaReady();
-    return toResult<T>(await withTimeout(this.query(sql()), this.source));
+    return toResult<T>(await serialize(() => withTimeout(this.query(sql()), this.source)));
   }
 
   run<T = Row>(): Promise<D1Result<T>> {
@@ -165,9 +184,11 @@ const database: D1Database = {
     });
     await schemaReady();
     // Like D1: pipelined in one transaction, all or nothing.
-    const rowsets = await withTimeout(
-      sql().begin((tx) => list.map((statement) => statement.query(tx))),
-      `batch of ${list.length} statements`,
+    const rowsets = await serialize(() =>
+      withTimeout(
+        sql().begin((tx) => list.map((statement) => statement.query(tx))),
+        `batch of ${list.length} statements`,
+      ),
     );
     return rowsets.map((rows) => toResult<T>(rows));
   },
