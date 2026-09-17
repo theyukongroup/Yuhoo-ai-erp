@@ -80,11 +80,8 @@ export const metadata: Metadata = {
 const nav = [
   ['AI Solutions', '/ai-solutions'],
   ['ERP Solutions', '/erp-solutions'],
-  ['Website Design', '/website-design'],
   ['AI + ERP', '/ai-erp'],
-  ['Equipment', '/equipment'],
   ['Industries', '/industries'],
-  ['Resources', '/resources'],
   ['Pricing', '/pricing'],
   ['About', '/about'],
 ];
@@ -128,7 +125,7 @@ export default async function RootLayout({
             {member ? 'My Account' : 'Sign In'}
           </a>
           <a className="nav-cta desktop-assessment" href="/assessment">
-            Free AI + ERP Assessment <ArrowUpRight size={16} />
+            Get Your Assessment <ArrowUpRight size={16} />
           </a>
           <MobileNavigation
             signedIn={Boolean(member)}
@@ -150,9 +147,14 @@ export default async function RootLayout({
                 height={66}
               />
             </a>
-            <p>AI that understands your business. ERP that runs it.</p>
+            <p>Smarter Business. Simpler Technology.</p>
           </div>
           <address className="footer-contact">
+            <a href="/ai-solutions">Private AI</a>
+            <a href="/erp-solutions">Odoo ERP</a>
+            <a href="/website-design">Website Design</a>
+            <a href="/equipment">Equipment</a>
+            <a href="/resources">Resources</a>
             <a href="/free-account">Free Business Account</a>
             <a href="/how-yuhoo-works">How Yuhoo Works</a>
             <a href="/case-studies">Case Studies</a>

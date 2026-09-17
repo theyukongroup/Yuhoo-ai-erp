@@ -38,6 +38,7 @@ export function MobileNavigation({ signedIn, accountHref }: Props) {
   const [open, setOpen] = useState(false);
   const closeButton = useRef<HTMLButtonElement>(null);
   const menuButton = useRef<HTMLButtonElement>(null);
+  const drawer = useRef<HTMLElement>(null);
   useEffect(() => {
     if (!open) return;
     const previous = document.body.style.overflow;
@@ -45,6 +46,13 @@ export function MobileNavigation({ signedIn, accountHref }: Props) {
     closeButton.current?.focus();
     const escape = (event: KeyboardEvent) => {
       if (event.key === 'Escape') setOpen(false);
+      if (event.key === 'Tab') {
+        const controls = Array.from(drawer.current?.querySelectorAll<HTMLElement>('a[href], button, select, summary') || []).filter(node => node.getClientRects().length > 0);
+        const first = controls[0];
+        const last = controls[controls.length - 1];
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+        if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+      }
     };
     document.addEventListener('keydown', escape);
     return () => {
@@ -74,6 +82,9 @@ export function MobileNavigation({ signedIn, accountHref }: Props) {
           }}
         >
           <aside
+            ref={drawer}
+            role="dialog"
+            aria-modal="true"
             id="mobile-navigation"
             className="mobile-menu-drawer"
             aria-label="Mobile navigation"

@@ -1,8 +1,8 @@
 /* Logo-derived palette. Teal decorates; darker blue supports readable text. */
 :root {
-  --yuhoo-primary:#102f54;
+  --yuhoo-primary:#0d2c4f;
   --yuhoo-secondary:#086ba3;
-  --yuhoo-accent:#0099a8;
+  --yuhoo-accent:#0097a4;
   --yuhoo-highlight:#e5f5f6;
   --yuhoo-gradient-start:#086ba3;
   --yuhoo-gradient-end:#008593;
@@ -15,6 +15,13 @@
   --yuhoo-radius-card:18px;
   --yuhoo-radius-panel:26px;
   --yuhoo-shadow:0 14px 45px #102f5410;
+  --yuhoo-shadow-raised:0 20px 55px #102f5418;
+  --yuhoo-space-sm:12px;
+  --yuhoo-space-md:24px;
+  --yuhoo-space-lg:48px;
+  --yuhoo-transition:220ms ease;
+  --yuhoo-on-brand:#ffffff;
+  --font-display:var(--font-sans);
   --yuhoo-gradient:linear-gradient(120deg,var(--yuhoo-gradient-start),var(--yuhoo-gradient-end));
   --background:var(--yuhoo-background);
   --foreground:var(--yuhoo-text);
@@ -27,6 +34,7 @@
 }
 body{background:var(--yuhoo-background);color:var(--yuhoo-text)}
 h1,h2,.price strong{font-family:var(--font-sans),Arial,sans-serif;font-weight:700;letter-spacing:-.045em}
+h1,h2,h3,strong,.button{font-variation-settings:normal}
 header{background:#fffffff2;border-color:var(--yuhoo-border)}
 .logo-brand,.footer-logo{height:auto;overflow:visible}
 .logo-brand img{mix-blend-mode:normal;object-fit:contain}
@@ -59,3 +67,46 @@ footer{background:var(--yuhoo-surface)}
 @media(max-width:800px){.hero{min-height:auto;padding-top:65px;padding-bottom:65px}.hero h1{font-size:clamp(42px,7vw,60px)}}
 @media(max-width:430px){header>.logo-brand{width:125px;flex-basis:125px}header>.logo-brand img{width:125px}.hero{gap:35px}.hero h1{font-size:42px}.mobile-menu-head img{width:170px}.system-map{padding:22px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* Yuhoo signature: connected nodes, a soft brand halo and floating app cards. */
+.hero{isolation:isolate;grid-template-columns:1.04fr 1fr;gap:48px;min-height:710px}
+.hero::after{width:520px;height:520px;right:-90px;top:70px;background:radial-gradient(circle,var(--yuhoo-highlight),transparent 70%);filter:none;opacity:1}
+.hero .eyebrow{font-family:var(--font-sans);font-size:12px;letter-spacing:.03em;color:var(--yuhoo-secondary);background:var(--yuhoo-highlight);padding:10px 14px;border-radius:100px;width:fit-content}
+.hero h1{font-size:clamp(44px,5.3vw,72px);line-height:1.08;max-width:650px;text-wrap:balance}
+.hero .actions{flex-wrap:wrap}
+.hero .button{font-size:13px;padding:15px 17px}
+.hero .trust-row{font-family:var(--font-sans);letter-spacing:.02em;font-size:10px;color:var(--yuhoo-text-muted);gap:18px}
+.business-hub{position:relative;min-width:0;border:1px solid var(--yuhoo-border);border-radius:var(--yuhoo-radius-panel);padding:24px;background:linear-gradient(150deg,var(--yuhoo-surface),var(--yuhoo-highlight));box-shadow:var(--yuhoo-shadow-raised)}
+.hub-topline{display:flex;justify-content:space-between;gap:12px;align-items:center;color:var(--yuhoo-text);font-size:12px;font-weight:700}
+.hub-topline small{font-size:8px;letter-spacing:.08em;color:var(--yuhoo-text-muted)}
+.hub-topline i{display:inline-block;width:7px;height:7px;background:var(--yuhoo-accent);border-radius:50%;margin-right:6px}
+.hub-network{position:relative;height:330px;display:grid;grid-template-columns:1fr 1fr;align-content:space-between;gap:100px 50px;padding:30px 0}
+.hub-lines{position:absolute;width:100%;height:100%;inset:0;stroke:var(--yuhoo-accent);stroke-width:1.5;fill:none;opacity:.45;stroke-dasharray:5 7;animation:hub-flow 18s linear infinite}
+.hub-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:150px;height:150px;border:1px solid var(--yuhoo-border);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-direction:column;background:var(--yuhoo-surface);box-shadow:0 0 0 12px var(--yuhoo-highlight),var(--yuhoo-shadow);z-index:2}
+.hub-center img{height:43px;width:auto;margin-bottom:6px}.hub-center strong{font-size:21px;letter-spacing:-.04em}.hub-center span{font-size:8px;color:var(--yuhoo-text-muted);margin-top:4px}
+.hub-app{position:relative;z-index:3;background:var(--yuhoo-surface);border:1px solid var(--yuhoo-border);border-radius:var(--yuhoo-radius-card);padding:15px;box-shadow:var(--yuhoo-shadow);transition:transform var(--yuhoo-transition);animation:rise .5s both}
+.hub-app:hover{transform:translateY(-3px)}.hub-app strong{display:block;font-size:12px;margin:8px 0 3px}.hub-app small{display:block;font-size:10px;color:var(--yuhoo-text-muted)}
+.hub-app-icon{width:34px;height:34px;display:grid;place-items:center;border-radius:var(--yuhoo-radius-control);background:var(--yuhoo-highlight);color:var(--yuhoo-secondary);flex-shrink:0}
+.hub-app-1,.hub-app-3{animation-delay:120ms}.hub-app-2{animation-delay:240ms}
+.hub-insight{position:relative;z-index:3;display:flex;align-items:center;gap:12px;padding:17px;background:var(--yuhoo-surface);border:1px solid var(--yuhoo-border);border-radius:var(--yuhoo-radius-card)}
+.hub-insight strong{font-size:12px;display:block}.hub-insight div>span{font-size:10px;display:block;color:var(--yuhoo-text-muted);margin-top:5px}.hub-insight>svg{margin-left:auto;color:var(--yuhoo-secondary);flex-shrink:0}
+.hub-bottom{display:flex;gap:7px;align-items:center;justify-content:center;font-size:10px;color:var(--yuhoo-text-muted);padding-top:17px}
+@keyframes hub-flow{to{stroke-dashoffset:-240}}
+.score-demo-label{grid-column:1/-1;color:var(--yuhoo-text-muted);font-size:11px;letter-spacing:.02em}
+.question-card,.score-grid article,.unlock-card,.tool-intro,.restaurant-question-card,.restaurant-results{border-radius:var(--yuhoo-radius-card);border-color:var(--yuhoo-border)}
+.question-card{background:var(--yuhoo-surface);box-shadow:var(--yuhoo-shadow)}
+.question-card input,.question-card select,.scale-options button{border-radius:var(--yuhoo-radius-control);border-color:var(--yuhoo-border)}
+.scale-options button{cursor:pointer;transition:background var(--yuhoo-transition),border-color var(--yuhoo-transition)}
+.scale-options button.selected,.score-grid article.overall{background:var(--yuhoo-primary);border-color:var(--yuhoo-primary);color:var(--yuhoo-on-brand)}
+.question-progress,.score-grid article>div{height:7px;border-radius:100px;background:var(--yuhoo-border)}
+.question-progress i,.score-grid article i{border-radius:100px;background:var(--yuhoo-gradient);transition:width 350ms ease}
+.score-grid article strong{font-family:var(--font-sans);font-weight:700}.unlock-card{background:var(--yuhoo-highlight)}
+.cta{background:var(--yuhoo-gradient);color:var(--yuhoo-on-brand);padding:85px 0}
+.cta h2{color:var(--yuhoo-on-brand);font-size:clamp(34px,4.5vw,58px);max-width:850px;text-wrap:balance}.cta .section-index,.cta p{color:var(--yuhoo-on-brand)}
+.cta p{margin:22px 0 30px}.cta .actions{justify-content:center;flex-wrap:wrap}.cta .button.primary{background:var(--yuhoo-surface);color:var(--yuhoo-primary);border-color:var(--yuhoo-surface)}
+.cta .button.secondary{color:var(--yuhoo-on-brand);border-color:var(--yuhoo-on-brand)}.cta .button.secondary:hover{background:var(--yuhoo-primary)}
+footer{padding-top:60px;padding-bottom:45px;background:var(--yuhoo-surface)}.footer-company>p{color:var(--yuhoo-primary);font-size:16px;font-weight:600;max-width:280px}
+@media(min-width:1251px){header .desktop-navigation{display:flex!important}header .mobile-menu-button{display:none!important}header .desktop-assessment{display:inline-flex!important}header{padding-left:28px;padding-right:28px;gap:18px}.desktop-navigation{gap:14px}.desktop-navigation a{font-size:12px}header>.logo-brand{width:150px;flex-basis:150px}header>.logo-brand img{width:150px}}
+@media(max-width:1000px){.hero{grid-template-columns:1fr;gap:48px;padding-top:65px;padding-bottom:65px}.business-hub{width:100%;max-width:620px;justify-self:center}.hero-copy{max-width:720px}.hero::after{top:auto;bottom:0}}
+@media(max-width:640px){.hero{padding-top:42px;gap:40px}.hero .eyebrow{font-size:11px;margin-bottom:22px}.hero h1{font-size:clamp(42px,9.8vw,58px)}.hero-copy>p{margin:22px 0;line-height:1.65}.hero .actions{flex-direction:column}.business-hub{padding:16px}.hub-topline{font-size:10px}.hub-topline small{font-size:7px}.hub-network{height:310px;gap:90px 34px}.hub-app{padding:12px}.hub-app strong{font-size:11px}.hub-app small{font-size:9px}.hub-center{width:125px;height:125px}.hub-center strong{font-size:19px}.hub-insight{padding:13px}.hub-insight strong{font-size:11px}.cta .actions{flex-direction:column}.scale-options{grid-template-columns:repeat(2,1fr)}}
+@media(prefers-reduced-motion:reduce){.hub-lines{animation:none}.question-progress i,.score-grid article i{transition:none}}

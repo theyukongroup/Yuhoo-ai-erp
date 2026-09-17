@@ -8,13 +8,17 @@ This repository is the Next.js Vercel-compatible application, backed by Supabase
 
 ## Vercel and DNS
 
-1. Deploy branch `codex/yuhoo-rebrand` from the existing GitHub repository to the existing Vercel project as a preview first. There is no need to rename the repository or create a new database.
+1. The active repository is `theyukongroup/Yuhoo-ai-erp`, production branch `main`, Vercel project `yuhoo-ai-erp` in team `nexavoris`. The initial rebrand is deployed at https://yuhoo-ai-erp.vercel.app. Preserve existing Supabase data; no new database is required for the rebrand.
 2. Keep existing Supabase/Postgres secrets and `NEXAVORIS_ADMIN_EMAILS` unchanged. Add `NEXT_PUBLIC_SITE_URL=https://www.yuhoo.ai` to the production public environment before the production build. Protect preview deployments from indexing where appropriate.
 3. Vercel → project Settings → Domains: add `www.yuhoo.ai` and `yuhoo.ai`. Use www as the serving domain, and redirect the apex to it.
 4. At the authoritative DNS provider for yuhoo.ai (confirm whether it is Bluehost or another provider), add the exact www CNAME and apex A/ALIAS values Vercel displays. No IP or CNAME destination is invented here. Preserve MX, SPF, DKIM, DMARC, and unrelated TXT records.
 5. Wait for Vercel domain verification and valid TLS certificates for both hostnames before cutover. Old HTTPS hostnames also require working TLS to redirect.
 
 Official guide: https://vercel.com/docs/domains/set-up-custom-domain
+
+### Observed configuration on September 17, 2026
+
+Vercel requested A `@` → `216.198.79.1` for the apex. The user's DNS screenshot confirms it is saved (TTL 2 hours), plus CNAME `www` → `1881f3761d88675f.vercel-dns-017.com` (TTL 4 hours). MX `@` → `mail.yuhoo.ai` was preserved. These values are observed account-specific configuration, not generic values for other projects. Vercel has apex → www as 308. Its last observed www state was “Generating SSL Certificate”; the apex was still awaiting DNS validation. Recheck Domains → Refresh and both HTTPS hosts after propagation. Do not bypass certificate errors. Separately confirm the mail hostname resolves and email delivery works without changing the MX record during website cutover.
 
 ## Permanent redirects
 
