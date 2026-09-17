@@ -80,8 +80,11 @@ export const metadata: Metadata = {
 const nav = [
   ['AI Solutions', '/ai-solutions'],
   ['ERP Solutions', '/erp-solutions'],
+  ['Website Design', '/website-design'],
   ['AI + ERP', '/ai-erp'],
+  ['Equipment', '/equipment'],
   ['Industries', '/industries'],
+  ['Resources', '/resources'],
   ['Pricing', '/pricing'],
   ['About', '/about'],
 ];

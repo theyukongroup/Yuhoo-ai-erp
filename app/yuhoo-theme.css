@@ -106,7 +106,22 @@ footer{background:var(--yuhoo-surface)}
 .cta p{margin:22px 0 30px}.cta .actions{justify-content:center;flex-wrap:wrap}.cta .button.primary{background:var(--yuhoo-surface);color:var(--yuhoo-primary);border-color:var(--yuhoo-surface)}
 .cta .button.secondary{color:var(--yuhoo-on-brand);border-color:var(--yuhoo-on-brand)}.cta .button.secondary:hover{background:var(--yuhoo-primary)}
 footer{padding-top:60px;padding-bottom:45px;background:var(--yuhoo-surface)}.footer-company>p{color:var(--yuhoo-primary);font-size:16px;font-weight:600;max-width:280px}
-@media(min-width:1251px){header .desktop-navigation{display:flex!important}header .mobile-menu-button{display:none!important}header .desktop-assessment{display:inline-flex!important}header{padding-left:28px;padding-right:28px;gap:18px}.desktop-navigation{gap:14px}.desktop-navigation a{font-size:12px}header>.logo-brand{width:150px;flex-basis:150px}header>.logo-brand img{width:150px}}
+@media(min-width:1400px){
+  header{padding-left:max(28px,calc((100vw - 1540px)/2));padding-right:max(28px,calc((100vw - 1540px)/2));gap:18px}
+  header .desktop-navigation{display:flex!important;gap:18px;margin-right:auto;white-space:nowrap}
+  header .desktop-navigation a{font-size:13px}
+  header .mobile-menu-button{display:none!important}
+  header .desktop-assessment{display:inline-flex!important;white-space:nowrap}
+  header>.logo-brand{width:180px;flex-basis:180px;flex-shrink:0;margin-right:12px}
+  header>.logo-brand img{width:180px}
+}
+@media(min-width:1400px) and (max-width:1599px){
+  header{gap:14px}
+  header .desktop-navigation{gap:14px}
+  header>.logo-brand{width:160px;flex-basis:160px;margin-right:4px}
+  header>.logo-brand img{width:160px}
+  header .nav-cta{padding:12px;font-size:12px}
+}
 @media(max-width:1000px){.hero{grid-template-columns:1fr;gap:48px;padding-top:65px;padding-bottom:65px}.business-hub{width:100%;max-width:620px;justify-self:center}.hero-copy{max-width:720px}.hero::after{top:auto;bottom:0}}
 @media(max-width:640px){.hero{padding-top:42px;gap:40px}.hero .eyebrow{font-size:11px;margin-bottom:22px}.hero h1{font-size:clamp(42px,9.8vw,58px)}.hero-copy>p{margin:22px 0;line-height:1.65}.hero .actions{flex-direction:column}.business-hub{padding:16px}.hub-topline{font-size:10px}.hub-topline small{font-size:7px}.hub-network{height:310px;gap:90px 34px}.hub-app{padding:12px}.hub-app strong{font-size:11px}.hub-app small{font-size:9px}.hub-center{width:125px;height:125px}.hub-center strong{font-size:19px}.hub-insight{padding:13px}.hub-insight strong{font-size:11px}.cta .actions{flex-direction:column}.scale-options{grid-template-columns:repeat(2,1fr)}}
 @media(prefers-reduced-motion:reduce){.hub-lines{animation:none}.question-progress i,.score-grid article i{transition:none}}
