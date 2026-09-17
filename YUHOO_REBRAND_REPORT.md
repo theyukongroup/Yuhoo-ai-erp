@@ -27,7 +27,7 @@ Logo-inspired centralized colors: navy #102F54, blue #086BA3, teal #0099A8, read
 
 ## Domain and SEO changes
 
-Canonical production host is https://www.yuhoo.ai. Existing unique page titles, descriptions, hreflang, locale rewriting, JSON-LD types, robots exclusions, and sitemap architecture were preserved and rebranded. Open Graph/X metadata uses Yuhoo branding and existing supplied artwork. All public business routes remain available. The restaurant page stays at `/industries/restaurants`; no duplicate `/restaurant` route was invented. No PWA manifest existed to rename.
+Canonical production host is https://yuhoo.ai (decided 2026-09-17; www redirects to the apex). Existing unique page titles, descriptions, hreflang, locale rewriting, JSON-LD types, robots exclusions, and sitemap architecture were preserved and rebranded. Open Graph/X metadata uses Yuhoo branding and existing supplied artwork. All public business routes remain available. The restaurant page stays at `/industries/restaurants`; no duplicate `/restaurant` route was invented. No PWA manifest existed to rename.
 
 ## Compatibility references intentionally retained
 

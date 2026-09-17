@@ -1,6 +1,6 @@
 # Yuhoo.ai domain migration — Vercel / Supabase
 
-New canonical origin: **https://www.yuhoo.ai**. Old origins: nexavoris.ai and www.nexavoris.ai.
+New canonical origin: **https://yuhoo.ai** (decided 2026-09-17; the apex serves, www redirects to it). Old origins: nexavoris.ai and www.nexavoris.ai.
 
 ## Detected environment
 
@@ -9,8 +9,8 @@ This repository is the Next.js Vercel-compatible application, backed by Supabase
 ## Vercel and DNS
 
 1. The active repository is `theyukongroup/Yuhoo-ai-erp`, production branch `main`, Vercel project `yuhoo-ai-erp` in team `nexavoris`. The initial rebrand is deployed at https://yuhoo-ai-erp.vercel.app. Preserve existing Supabase data; no new database is required for the rebrand.
-2. Keep existing Supabase/Postgres secrets and `NEXAVORIS_ADMIN_EMAILS` unchanged. Add `NEXT_PUBLIC_SITE_URL=https://www.yuhoo.ai` to the production public environment before the production build. Protect preview deployments from indexing where appropriate.
-3. Vercel → project Settings → Domains: add `www.yuhoo.ai` and `yuhoo.ai`. Use www as the serving domain, and redirect the apex to it.
+2. Keep existing Supabase/Postgres secrets and `NEXAVORIS_ADMIN_EMAILS` unchanged. Add `NEXT_PUBLIC_SITE_URL=https://yuhoo.ai` to the production public environment before the production build. Protect preview deployments from indexing where appropriate.
+3. Vercel → project Settings → Domains: add `yuhoo.ai` and `www.yuhoo.ai`. Use the apex as the serving domain, and redirect www to it.
 4. At the authoritative DNS provider for yuhoo.ai (confirm whether it is Bluehost or another provider), add the exact www CNAME and apex A/ALIAS values Vercel displays. No IP or CNAME destination is invented here. Preserve MX, SPF, DKIM, DMARC, and unrelated TXT records.
 5. Wait for Vercel domain verification and valid TLS certificates for both hostnames before cutover. Old HTTPS hostnames also require working TLS to redirect.
 
@@ -22,15 +22,15 @@ Vercel requested A `@` → `216.198.79.1` for the apex. The user's DNS screensho
 
 ## Permanent redirects
 
-Configure both legacy hostnames as redirect domains on the Vercel project, targeting https://www.yuhoo.ai. Preserve paths and query strings, and use a permanent redirect. Verify the actual status in the Vercel UI; configure 301 if supported, otherwise Vercel/Next.js may use 308. Both must point directly to the canonical host without loops. HTTPS and HTTP aliases of the new domain should converge to www HTTPS.
+Configure both legacy hostnames as redirect domains on the Vercel project, targeting https://yuhoo.ai. Preserve paths and query strings, and use a permanent redirect. Verify the actual status in the Vercel UI; configure 301 if supported, otherwise Vercel/Next.js may use 308. Both must point directly to the canonical host without loops. HTTPS and HTTP aliases of the new domain should converge on the apex over HTTPS.
 
-Example: `https://www.nexavoris.ai/pricing?lang=es` → `https://www.yuhoo.ai/pricing?lang=es`.
+Example: `https://www.nexavoris.ai/pricing?lang=es` → `https://yuhoo.ai/pricing?lang=es`.
 
 The repository already implements a permanent **308** path redirect from `/how-nexavoris-works` to `/how-yuhoo-works`, preserving query parameters. Combining the old-host and old-path changes into one edge redirect is preferable when the host permits it. No host redirect is forced on localhost or preview deployments.
 
 ## Supabase authentication
 
-Authentication → URL Configuration: set Site URL to https://www.yuhoo.ai. Add the production `/login/verify` redirect destination used by the application, and retain the actual existing Vercel production/preview and localhost allowlist entries. This application passes `next` and language query parameters; validate signup confirmation and password reset against the configured allowlist before launch. Do not guess new Vercel preview team/project patterns: keep the ones belonging to the existing deployment.
+Authentication → URL Configuration: set Site URL to https://yuhoo.ai. Add the production `/login/verify` redirect destination used by the application, and retain the actual existing Vercel production/preview and localhost allowlist entries. This application passes `next` and language query parameters; validate signup confirmation and password reset against the configured allowlist before launch. Do not guess new Vercel preview team/project patterns: keep the ones belonging to the existing deployment.
 
 Preserve the email-token templates described in README; `/login/verify` deliberately requires the person to click before redeeming a token. Update email sender/display branding to Yuhoo.ai in Supabase/Resend. Confirm email stays enabled, and admin identity remains verified.
 

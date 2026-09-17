@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 
 const target = (process.argv[2] || 'http://127.0.0.1:8793').replace(/\/$/, '');
-const canonicalHost = process.env.SEO_CANONICAL_HOST || 'https://www.yuhoo.ai';
+const canonicalHost = process.env.SEO_CANONICAL_HOST || 'https://yuhoo.ai';
 const routes = [
   '/', '/ai-solutions', '/erp-solutions', '/website-design', '/ai-erp',
   '/equipment', '/industries', '/pricing', '/about', '/contact',
