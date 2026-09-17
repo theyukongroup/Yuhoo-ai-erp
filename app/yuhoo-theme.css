@@ -56,6 +56,8 @@ header>.logo-brand img{width:180px;height:auto}
 .map-status i{background:var(--yuhoo-accent)}
 .problem-grid article,.module-cloud article,.pricing-grid article,.industry-grid>a,.detail-grid article,.web-service-grid article,.restaurant-model-grid article,.member-promo,.why article{border-radius:var(--yuhoo-radius-card);overflow:hidden}
 .module-cloud article:hover,.industry-grid>a:hover{box-shadow:var(--yuhoo-shadow)}
+.pricing-grid article{overflow:visible}
+.popular-label{border-radius:var(--yuhoo-radius-control);z-index:1}
 .band,.integration,.process,.cta,.restaurant-models,.restaurant-private-section{background:var(--yuhoo-highlight)}
 .band{border-radius:var(--yuhoo-radius-panel);border-left:0}
 .mobile-menu-drawer{background:var(--yuhoo-surface)}
