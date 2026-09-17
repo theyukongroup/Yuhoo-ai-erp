@@ -1,4 +1,7 @@
 :root {
+  /* The sticky site header sits above the member and admin workspaces, which
+     size themselves against it. Change it here, not in two places. */
+  --yuhoo-header-height: 82px;
   --background: var(--yuhoo-background);
   --foreground: var(--yuhoo-text);
   --card: var(--yuhoo-surface);
@@ -34,7 +37,7 @@ h2,
   font-weight: 500;
 }
 header {
-  height: 82px;
+  height: var(--yuhoo-header-height);
   background: rgba(245, 243, 238, 0.96);
   border-bottom: 1px solid var(--yuhoo-border);
   box-shadow: none;
