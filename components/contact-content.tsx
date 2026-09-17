@@ -51,7 +51,7 @@ export default function ContactContent({
         <span className="section-index">REQUEST RECEIVED</span>
         <h1>Thank you. Let’s talk about your operation.</h1>
         <p>
-          Your consultation request has been recorded. A Nexavoris specialist
+          Your consultation request has been recorded. A Yuhoo specialist
           will follow up to discuss your goals and next steps.
         </p>
       </section>
@@ -60,7 +60,7 @@ export default function ContactContent({
     <main>
       <section className="contact-hero section-shell">
         <div>
-          <span className="section-index">CONTACT NEXAVORIS</span>
+          <span className="section-index">CONTACT YUHOO</span>
           <h1>Start with your business—not a software pitch.</h1>
           <p>
             Tell us where work slows down, where information gets lost, or what

@@ -52,7 +52,7 @@ export type AuthCopy = {
 
 export const authCopy: Record<Locale, AuthCopy> = {
   en: {
-    signInTitle: 'Sign in to Nexavoris',
+    signInTitle: 'Sign in to Yuhoo',
     signInIntro: 'Access your saved assessments, opportunity reports, ROI scenarios, and roadmap.',
     registerTitle: 'Create your free account',
     registerIntro: 'Save your AI + ERP assessment and keep improving your plan. Free, no credit card required.',
@@ -74,7 +74,7 @@ export const authCopy: Record<Locale, AuthCopy> = {
     resent: 'If the address still needs confirming, a new link is on its way.',
     invalidCredentials: 'That email and password combination is not correct.',
     notConfirmed: 'Please confirm your email address first. Check your inbox for the link.',
-    suspended: 'This account is suspended. Contact info@nexavoris.ai for help.',
+    suspended: 'This account is suspended. Contact info@yuhoo.ai for help.',
     weakPassword: 'Choose a stronger password with at least 7 characters.',
     passwordMismatch: 'The passwords do not match.',
     samePassword: 'Choose a password different from your current one.',
@@ -86,7 +86,7 @@ export const authCopy: Record<Locale, AuthCopy> = {
     sendResetLink: 'Send reset link',
     resetSent: 'If an account exists for {email}, a password reset link is on its way.',
     resetTitle: 'Choose a new password',
-    resetIntro: 'Enter a new password for your Nexavoris account.',
+    resetIntro: 'Enter a new password for your Yuhoo account.',
     newPassword: 'New password',
     updatePassword: 'Save new password',
     linkExpired: 'This link has expired or was already used. Request a new one.',
@@ -97,7 +97,7 @@ export const authCopy: Record<Locale, AuthCopy> = {
     requestNewLink: 'Request a new link',
   },
   'zh-cn': {
-    signInTitle: '登录 Nexavoris',
+    signInTitle: '登录 Yuhoo',
     signInIntro: '查看您保存的评估、机会报告、ROI 场景和路线图。',
     registerTitle: '创建免费账户',
     registerIntro: '保存您的 AI + ERP 评估并持续完善计划。免费，无需信用卡。',
@@ -119,7 +119,7 @@ export const authCopy: Record<Locale, AuthCopy> = {
     resent: '如果该地址仍需确认，新的链接已发送。',
     invalidCredentials: '邮箱或密码不正确。',
     notConfirmed: '请先确认您的邮箱地址，确认链接已发送到您的收件箱。',
-    suspended: '此账户已被暂停。如需帮助，请联系 info@nexavoris.ai。',
+    suspended: '此账户已被暂停。如需帮助，请联系 info@yuhoo.ai。',
     weakPassword: '请设置更安全的密码，至少 7 个字符。',
     passwordMismatch: '两次输入的密码不一致。',
     samePassword: '新密码不能与当前密码相同。',
@@ -131,7 +131,7 @@ export const authCopy: Record<Locale, AuthCopy> = {
     sendResetLink: '发送重置链接',
     resetSent: '如果 {email} 存在账户，密码重置链接已发送。',
     resetTitle: '设置新密码',
-    resetIntro: '为您的 Nexavoris 账户输入新密码。',
+    resetIntro: '为您的 Yuhoo 账户输入新密码。',
     newPassword: '新密码',
     updatePassword: '保存新密码',
     linkExpired: '此链接已过期或已被使用，请重新申请。',
@@ -142,7 +142,7 @@ export const authCopy: Record<Locale, AuthCopy> = {
     requestNewLink: '重新申请链接',
   },
   'zh-tw': {
-    signInTitle: '登入 Nexavoris',
+    signInTitle: '登入 Yuhoo',
     signInIntro: '查看您儲存的評估、機會報告、ROI 情境和路線圖。',
     registerTitle: '建立免費帳戶',
     registerIntro: '儲存您的 AI + ERP 評估並持續完善計畫。免費，無需信用卡。',
@@ -164,7 +164,7 @@ export const authCopy: Record<Locale, AuthCopy> = {
     resent: '如果該地址仍需確認，新的連結已寄出。',
     invalidCredentials: '電子郵件或密碼不正確。',
     notConfirmed: '請先確認您的電子郵件地址，確認連結已寄到您的收件匣。',
-    suspended: '此帳戶已被停用。如需協助，請聯絡 info@nexavoris.ai。',
+    suspended: '此帳戶已被停用。如需協助，請聯絡 info@yuhoo.ai。',
     weakPassword: '請設定更安全的密碼，至少 7 個字元。',
     passwordMismatch: '兩次輸入的密碼不一致。',
     samePassword: '新密碼不能與目前密碼相同。',
@@ -176,7 +176,7 @@ export const authCopy: Record<Locale, AuthCopy> = {
     sendResetLink: '寄送重設連結',
     resetSent: '如果 {email} 有帳戶，密碼重設連結已寄出。',
     resetTitle: '設定新密碼',
-    resetIntro: '為您的 Nexavoris 帳戶輸入新密碼。',
+    resetIntro: '為您的 Yuhoo 帳戶輸入新密碼。',
     newPassword: '新密碼',
     updatePassword: '儲存新密碼',
     linkExpired: '此連結已過期或已被使用，請重新申請。',
@@ -187,7 +187,7 @@ export const authCopy: Record<Locale, AuthCopy> = {
     requestNewLink: '重新申請連結',
   },
   es: {
-    signInTitle: 'Inicie sesión en Nexavoris',
+    signInTitle: 'Inicie sesión en Yuhoo',
     signInIntro: 'Acceda a sus evaluaciones guardadas, informes de oportunidades, escenarios de ROI y hoja de ruta.',
     registerTitle: 'Cree su cuenta gratuita',
     registerIntro: 'Guarde su evaluación de IA + ERP y siga mejorando su plan. Gratis, sin tarjeta de crédito.',
@@ -209,7 +209,7 @@ export const authCopy: Record<Locale, AuthCopy> = {
     resent: 'Si la dirección aún necesita confirmación, le enviamos un nuevo enlace.',
     invalidCredentials: 'La combinación de correo y contraseña no es correcta.',
     notConfirmed: 'Primero confirme su dirección de correo. Revise su bandeja de entrada.',
-    suspended: 'Esta cuenta está suspendida. Escriba a info@nexavoris.ai para obtener ayuda.',
+    suspended: 'Esta cuenta está suspendida. Escriba a info@yuhoo.ai para obtener ayuda.',
     weakPassword: 'Elija una contraseña más segura, de al menos 7 caracteres.',
     passwordMismatch: 'Las contraseñas no coinciden.',
     samePassword: 'Elija una contraseña distinta de la actual.',
@@ -221,7 +221,7 @@ export const authCopy: Record<Locale, AuthCopy> = {
     sendResetLink: 'Enviar enlace',
     resetSent: 'Si existe una cuenta para {email}, le enviamos un enlace para restablecer la contraseña.',
     resetTitle: 'Elija una nueva contraseña',
-    resetIntro: 'Introduzca una nueva contraseña para su cuenta de Nexavoris.',
+    resetIntro: 'Introduzca una nueva contraseña para su cuenta de Yuhoo.',
     newPassword: 'Nueva contraseña',
     updatePassword: 'Guardar contraseña',
     linkExpired: 'Este enlace caducó o ya se utilizó. Solicite uno nuevo.',
@@ -238,7 +238,7 @@ export function resolveAuthLocale(lang?: string | null, next?: string | null): L
   if (lang && isLocale(lang)) return lang;
   if (next) {
     try {
-      const inner = new URL(next, 'https://nexavoris.invalid').searchParams.get('lang');
+      const inner = new URL(next, 'https://yuhoo.invalid').searchParams.get('lang');
       if (inner && isLocale(inner)) return inner;
     } catch {
       // fall through to English

@@ -1,0 +1,61 @@
+/* Logo-derived palette. Teal decorates; darker blue supports readable text. */
+:root {
+  --yuhoo-primary:#102f54;
+  --yuhoo-secondary:#086ba3;
+  --yuhoo-accent:#0099a8;
+  --yuhoo-highlight:#e5f5f6;
+  --yuhoo-gradient-start:#086ba3;
+  --yuhoo-gradient-end:#008593;
+  --yuhoo-background:#f7fbfc;
+  --yuhoo-surface:#ffffff;
+  --yuhoo-text:#102f54;
+  --yuhoo-text-muted:#566c79;
+  --yuhoo-border:#d9e8ec;
+  --yuhoo-radius-control:10px;
+  --yuhoo-radius-card:18px;
+  --yuhoo-radius-panel:26px;
+  --yuhoo-shadow:0 14px 45px #102f5410;
+  --yuhoo-gradient:linear-gradient(120deg,var(--yuhoo-gradient-start),var(--yuhoo-gradient-end));
+  --background:var(--yuhoo-background);
+  --foreground:var(--yuhoo-text);
+  --card:var(--yuhoo-surface);
+  --muted:var(--yuhoo-text-muted);
+  --blue:var(--yuhoo-secondary);
+  --teal:var(--yuhoo-accent);
+  --line:var(--yuhoo-border);
+  --radius:var(--yuhoo-radius-control);
+}
+body{background:var(--yuhoo-background);color:var(--yuhoo-text)}
+h1,h2,.price strong{font-family:var(--font-sans),Arial,sans-serif;font-weight:700;letter-spacing:-.045em}
+header{background:#fffffff2;border-color:var(--yuhoo-border)}
+.logo-brand,.footer-logo{height:auto;overflow:visible}
+.logo-brand img{mix-blend-mode:normal;object-fit:contain}
+header>.logo-brand{width:180px;flex-basis:180px}
+header>.logo-brand img{width:180px;height:auto}
+.hero{min-height:680px;gap:65px}
+.hero h1{font-size:clamp(44px,5vw,72px);line-height:1.06}
+.hero h1 span{color:var(--yuhoo-secondary)}
+.hero::after{background:var(--yuhoo-highlight);filter:blur(90px);border-radius:50%;opacity:.8}
+.hero-copy>p{color:var(--yuhoo-text-muted)}
+.button,.nav-cta{border-radius:var(--yuhoo-radius-control);min-height:46px;transition:transform .2s,background .2s,box-shadow .2s}
+.button.primary{background:var(--yuhoo-gradient);border-color:var(--yuhoo-secondary);box-shadow:0 7px 20px #086ba318}
+.button.primary:hover{background:var(--yuhoo-primary);border-color:var(--yuhoo-primary);transform:translateY(-2px)}
+.button.secondary:hover{background:var(--yuhoo-highlight)}
+.system-map{border-radius:var(--yuhoo-radius-panel);background:radial-gradient(ellipse at 80% 10%,var(--yuhoo-highlight),var(--yuhoo-surface));border-color:var(--yuhoo-border);box-shadow:var(--yuhoo-shadow)}
+.map-row{border-radius:12px;background:var(--yuhoo-surface);border-color:var(--yuhoo-border)}
+.map-icon{border-radius:10px;background:var(--yuhoo-highlight);color:var(--yuhoo-secondary)}
+.map-flow{background:var(--yuhoo-accent)}
+.map-status i{background:var(--yuhoo-accent)}
+.problem-grid article,.module-cloud article,.pricing-grid article,.industry-grid>a,.detail-grid article,.web-service-grid article,.restaurant-model-grid article,.member-promo,.why article{border-radius:var(--yuhoo-radius-card);overflow:hidden}
+.module-cloud article:hover,.industry-grid>a:hover{box-shadow:var(--yuhoo-shadow)}
+.band,.integration,.process,.cta,.restaurant-models,.restaurant-private-section{background:var(--yuhoo-highlight)}
+.band{border-radius:var(--yuhoo-radius-panel);border-left:0}
+.mobile-menu-drawer{background:var(--yuhoo-surface)}
+.mobile-menu-head img{width:180px;height:auto}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid var(--yuhoo-secondary);outline-offset:4px}
+footer{background:var(--yuhoo-surface)}
+@media(max-width:1200px){header>.logo-brand{width:160px;flex-basis:160px}header>.logo-brand img{width:160px}.hero{gap:40px}}
+@media(max-width:1550px){header{gap:18px}.desktop-navigation{display:none!important}.mobile-menu-button{display:inline-flex!important;align-items:center;justify-content:center;flex-shrink:0;width:44px;height:44px}.desktop-assessment{display:none!important}}
+@media(max-width:800px){.hero{min-height:auto;padding-top:65px;padding-bottom:65px}.hero h1{font-size:clamp(42px,7vw,60px)}}
+@media(max-width:430px){header>.logo-brand{width:125px;flex-basis:125px}header>.logo-brand img{width:125px}.hero{gap:35px}.hero h1{font-size:42px}.mobile-menu-head img{width:170px}.system-map{padding:22px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}

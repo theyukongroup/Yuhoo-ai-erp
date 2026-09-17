@@ -1,19 +1,19 @@
-# Nexavoris
+# Yuhoo
 
-> Nexavoris provides private enterprise AI systems, ERP consulting and implementation (including Odoo), intelligent business automation, and website design for operational businesses — wholesale & distribution, HVAC & field service, construction, retail, manufacturing, and professional services.
+> Yuhoo provides private enterprise AI systems, ERP consulting and implementation (including Odoo), intelligent business automation, and website design for operational businesses — wholesale & distribution, HVAC & field service, construction, retail, manufacturing, and professional services.
 
-Nexavoris combines private AI grounded in a company's own documents, SOPs, and operating knowledge with ERP systems that run day-to-day operations, so employees can ask natural-language questions and trigger real actions against live business data.
+Yuhoo combines private AI grounded in a company's own documents, SOPs, and operating knowledge with ERP systems that run day-to-day operations, so employees can ask natural-language questions and trigger real actions against live business data.
 
 ## Pages
 
-- [AI Solutions](https://nexavoris.ai/ai-solutions): Private AI servers, company knowledge AI, SOP search, employee training AI, document intelligence, and AI business automation.
-- [ERP Solutions](https://nexavoris.ai/erp-solutions): ERP consulting, Odoo implementation, CRM & sales, purchasing & inventory, accounting integration, field service, custom modules, data migration, and support.
-- [Website Design](https://nexavoris.ai/website-design): Website strategy, design, development, ecommerce, and integrations, with project packages starting at $2,500.
-- [AI + ERP](https://nexavoris.ai/ai-erp): How natural-language AI connects to live ERP data across CRM, sales, inventory, purchasing, and operations.
-- [Equipment](https://nexavoris.ai/equipment): Recommended on-premise server hardware for private AI and Odoo ERP deployments, with sizing guidance.
-- [Industries](https://nexavoris.ai/industries): Wholesale & distribution, HVAC & field service, construction, retail, manufacturing, and professional services.
-- [Pricing](https://nexavoris.ai/pricing): Planning-level packages for AI implementation ($7,500+), ERP implementation ($5,000+), and monthly care plans ($300+/month).
-- [About](https://nexavoris.ai/about): Who Nexavoris is and how we work.
-- [Contact](https://nexavoris.ai/contact): Schedule a consultation. Phone 281-258-8000, email info@nexavoris.ai, 13366 Murphy Road, Stafford, TX 77477.
+- [AI Solutions](https://www.yuhoo.ai/ai-solutions): Private AI servers, company knowledge AI, SOP search, employee training AI, document intelligence, and AI business automation.
+- [ERP Solutions](https://www.yuhoo.ai/erp-solutions): ERP consulting, Odoo implementation, CRM & sales, purchasing & inventory, accounting integration, field service, custom modules, data migration, and support.
+- [Website Design](https://www.yuhoo.ai/website-design): Website strategy, design, development, ecommerce, and integrations, with project packages starting at $2,500.
+- [AI + ERP](https://www.yuhoo.ai/ai-erp): How natural-language AI connects to live ERP data across CRM, sales, inventory, purchasing, and operations.
+- [Equipment](https://www.yuhoo.ai/equipment): Recommended on-premise server hardware for private AI and Odoo ERP deployments, with sizing guidance.
+- [Industries](https://www.yuhoo.ai/industries): Wholesale & distribution, HVAC & field service, construction, retail, manufacturing, and professional services.
+- [Pricing](https://www.yuhoo.ai/pricing): Planning-level packages for AI implementation ($7,500+), ERP implementation ($5,000+), and monthly care plans ($300+/month).
+- [About](https://www.yuhoo.ai/about): Who Yuhoo is and how we work.
+- [Contact](https://www.yuhoo.ai/contact): Schedule a consultation. Phone 281-258-8000, email info@yuhoo.ai, 13366 Murphy Road, Stafford, TX 77477.
 
 The site is available in English, Simplified Chinese, Traditional Chinese, and Spanish (append ?lang=zh-cn, ?lang=zh-tw, or ?lang=es to any page URL).

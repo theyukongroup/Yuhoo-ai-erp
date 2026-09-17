@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 
 const target = (process.argv[2] || 'http://127.0.0.1:8793').replace(/\/$/, '');
-const canonicalHost = process.env.SEO_CANONICAL_HOST || 'https://nexavoris.ai';
+const canonicalHost = process.env.SEO_CANONICAL_HOST || 'https://www.yuhoo.ai';
 const routes = [
   '/', '/ai-solutions', '/erp-solutions', '/website-design', '/ai-erp',
   '/equipment', '/industries', '/pricing', '/about', '/contact',
@@ -14,7 +14,7 @@ const routes = [
   '/resources/industries/manufacturing', '/resources/industries/retail',
   '/resources/industries/professional-services',
 ];
-const authorityRoutes = ['/case-studies','/how-nexavoris-works','/methodology/ai-erp-readiness','/methodology/roi-calculator','/trust','/privacy','/terms','/industries/restaurants'];
+const authorityRoutes = ['/case-studies','/how-yuhoo-works','/methodology/ai-erp-readiness','/methodology/roi-calculator','/trust','/privacy','/terms','/industries/restaurants'];
 const locales = [
   ['en-US', ''], ['zh-CN', '?lang=zh-cn'],
   ['zh-TW', '?lang=zh-tw'], ['es', '?lang=es'],

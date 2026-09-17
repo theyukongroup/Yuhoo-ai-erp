@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { headers } from 'next/headers';
-import { Manrope, Newsreader, Geist_Mono } from 'next/font/google';
+import { Manrope, Geist_Mono } from 'next/font/google';
 import Image from 'next/image';
 import { ArrowUpRight, Mail, MapPin, Phone } from 'lucide-react';
 import {
@@ -22,14 +22,14 @@ import './resources.css';
 import './authority.css';
 import './member.css';
 import './restaurants.css';
+import './yuhoo-theme.css';
 
 const sans = Manrope({ variable: '--font-sans', subsets: ['latin'] });
-const display = Newsreader({ variable: '--font-display', subsets: ['latin'] });
 const mono = Geist_Mono({ variable: '--font-mono', subsets: ['latin'] });
 export const metadata: Metadata = {
   title: {
-    default: 'Nexavoris | AI & ERP Systems',
-    template: '%s | Nexavoris',
+    default: 'Yuhoo.ai | AI & ERP Systems',
+    template: '%s | Yuhoo.ai',
   },
   description:
     'Private enterprise AI, ERP implementation, and intelligent business automation for growing companies.',
@@ -48,33 +48,33 @@ export const metadata: Metadata = {
   category: 'business technology services',
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: '48x48' },
-      { url: '/favicon.png', type: 'image/png', sizes: '512x512' },
+      { url: '/yuhoo-icon.png', type: 'image/png', sizes: '160x181' },
+      { url: '/yuhoo-icon.png', type: 'image/png', sizes: '160x181' },
     ],
     apple: '/apple-touch-icon.png',
   },
   openGraph: {
-    title: 'Nexavoris AI & ERP Systems',
+    title: 'Yuhoo AI & ERP Systems',
     description: 'One integrated operating system for your business.',
     url: SITE_URL,
-    siteName: 'Nexavoris',
+    siteName: 'Yuhoo.ai',
     locale: 'en_US',
     alternateLocale: ['zh_CN', 'zh_TW', 'es'],
     type: 'website',
     images: [
       {
-        url: '/og.png',
-        width: 1200,
-        height: 630,
-        alt: 'Nexavoris AI & ERP Systems',
+        url: '/yuhoo-logo.webp',
+        width: 1000,
+        height: 320,
+        alt: 'Yuhoo AI & ERP Systems',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Nexavoris AI & ERP Systems',
+    title: 'Yuhoo AI & ERP Systems',
     description: 'Private AI, ERP, and automation for operational businesses.',
-    images: ['/og.png'],
+    images: ['/yuhoo-logo.webp'],
   },
 };
 const nav = [
@@ -101,18 +101,18 @@ export default async function RootLayout({
   const member = await getChatGPTUser();
   return (
     <html lang={documentLanguage} suppressHydrationWarning>
-      <body className={`${sans.variable} ${display.variable} ${mono.variable}`}>
+      <body className={`${sans.variable} ${mono.variable}`}>
         <a className="skip-link" href="#main-content">
           Skip to main content
         </a>
         <LanguageRuntime />
         <header>
-          <a className="brand logo-brand" href="/" aria-label="Nexavoris home">
+          <a className="brand logo-brand" href="/" aria-label="Yuhoo home">
             <Image
-              src="/nexavoris-logo.png"
-              alt="Nexavoris AI & ERP Systems"
+              src="/yuhoo-logo.webp"
+              alt="Yuhoo AI & ERP Systems"
               width={210}
-              height={105}
+              height={67}
               priority
             />
           </a>
@@ -141,20 +141,20 @@ export default async function RootLayout({
             <a
               className="logo-brand footer-logo"
               href="/"
-              aria-label="Nexavoris home"
+              aria-label="Yuhoo home"
             >
               <Image
-                src="/nexavoris-logo.png"
-                alt="Nexavoris AI & ERP Systems"
+                src="/yuhoo-logo.webp"
+                alt="Yuhoo AI & ERP Systems"
                 width={205}
-                height={103}
+                height={66}
               />
             </a>
             <p>AI that understands your business. ERP that runs it.</p>
           </div>
           <address className="footer-contact">
             <a href="/free-account">Free Business Account</a>
-            <a href="/how-nexavoris-works">How Nexavoris Works</a>
+            <a href="/how-yuhoo-works">How Yuhoo Works</a>
             <a href="/case-studies">Case Studies</a>
             <a href="/trust">Trust &amp; Data Practices</a>
             <span>
@@ -169,13 +169,13 @@ export default async function RootLayout({
               <Phone size={16} />
               281-258-8000
             </a>
-            <a href="mailto:info@nexavoris.ai">
+            <a href="mailto:info@yuhoo.ai">
               <Mail size={16} />
-              info@nexavoris.ai
+              info@yuhoo.ai
             </a>
           </address>
           <span className="footer-copyright">
-            © 2026 Nexavoris. All rights reserved.
+            © 2026 Yuhoo.ai. All rights reserved.
             {' · '}<a href="/privacy">Privacy</a>{' · '}<a href="/terms">Terms</a>
           </span>
         </footer>
@@ -188,12 +188,12 @@ export default async function RootLayout({
                 {
                   '@type': ['Organization', 'ProfessionalService'],
                   '@id': `${SITE_URL}/#organization`,
-                  name: 'Nexavoris AI & ERP Systems',
-                  alternateName: 'Nexavoris',
+                  name: 'Yuhoo AI & ERP Systems',
+                  alternateName: 'Yuhoo',
                   url: SITE_URL,
-                  logo: `${SITE_URL}/nexavoris-logo.png`,
-                  image: `${SITE_URL}/og.png`,
-                  email: 'info@nexavoris.ai',
+                  logo: `${SITE_URL}/yuhoo-logo.webp`,
+                  image: `${SITE_URL}/yuhoo-logo.webp`,
+                  email: 'info@yuhoo.ai',
                   telephone: '+1-281-258-8000',
                   address: {
                     '@type': 'PostalAddress',
@@ -214,7 +214,7 @@ export default async function RootLayout({
                   ],
                   hasOfferCatalog: {
                     '@type': 'OfferCatalog',
-                    name: 'Nexavoris business technology services',
+                    name: 'Yuhoo business technology services',
                     itemListElement: [
                       'Private enterprise AI solutions',
                       'ERP consulting and Odoo implementation',
@@ -231,7 +231,7 @@ export default async function RootLayout({
                   '@type': 'WebSite',
                   '@id': `${SITE_URL}/#website`,
                   url: SITE_URL,
-                  name: 'Nexavoris',
+                  name: 'Yuhoo.ai',
                   publisher: { '@id': `${SITE_URL}/#organization` },
                   inLanguage: ['en-US', 'zh-CN', 'zh-TW', 'es'],
                 },

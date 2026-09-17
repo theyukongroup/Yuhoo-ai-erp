@@ -29,7 +29,7 @@ const groups = [
       ['Business Automation', '/resources/business-automation'],
       ['Industry Resources', '/resources/industries/wholesale-distribution'],
       ['Case Studies', '/case-studies'],
-      ['How Nexavoris Works', '/how-nexavoris-works'],
+      ['How Yuhoo Works', '/how-yuhoo-works'],
     ],
   },
 ] as const;
@@ -82,13 +82,13 @@ export function MobileNavigation({ signedIn, accountHref }: Props) {
               <a
                 href="/"
                 onClick={() => setOpen(false)}
-                aria-label="Nexavoris home"
+                aria-label="Yuhoo home"
               >
                 <Image
-                  src="/nexavoris-logo.png"
-                  alt="Nexavoris AI & ERP Systems"
+                  src="/yuhoo-logo.webp"
+                  alt="Yuhoo AI & ERP Systems"
                   width={190}
-                  height={95}
+                  height={61}
                 />
               </a>
               <button
@@ -128,7 +128,7 @@ export function MobileNavigation({ signedIn, accountHref }: Props) {
               <a href="/contact">Contact</a>
             </nav>
             <section className="mobile-member-promo">
-              <span>FREE NEXAVORIS BUSINESS TOOLS</span>
+              <span>FREE YUHOO BUSINESS TOOLS</span>
               <h2>
                 See how ready your business is for AI + ERP and receive your
                 personalized recommendations.

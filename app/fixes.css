@@ -12,12 +12,12 @@ button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid #1f5c4d;
+  outline: 2px solid var(--yuhoo-secondary);
   outline-offset: 3px;
 }
 .integration a:focus-visible,
 .quote-band a:focus-visible {
-  outline-color: #d89576;
+  outline-color: var(--yuhoo-accent);
 }
 
 /* 2. Respect the user's reduced-motion preference site-wide */

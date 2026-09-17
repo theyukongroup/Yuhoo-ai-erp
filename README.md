@@ -1,3 +1,13 @@
+# Yuhoo.ai — rebranded Vercel repository
+
+Active repository: `https://github.com/theyukongroup/Yuhoo-ai-erp`. The local website root is `C:\Users\l.leung\Documents\yuhoo-website\nexavoris-source`, containing `app`, `components`, `lib`, and `package.json`. Add that folder with GitHub Desktop → File → Add local repository. The original `NexavorisSite-VercelCompatible` repository is retained as `upstream`; `origin` points to Yuhoo-ai-erp. The older repository instructions below are historical.
+
+The public brand is now Yuhoo.ai and the canonical origin is https://www.yuhoo.ai. See YUHOO_REBRAND_REPORT.md and YUHOO_DOMAIN_MIGRATION.md before deployment. This is the existing Vercel/Supabase application, including restaurant diagnostics and member/admin tools. The repository name and existing integration contracts remain unchanged.
+
+The operational notes below describe the historical Nexavoris deployment. Its old domains, sender addresses, and canonical direction are historical and are superseded by YUHOO_DOMAIN_MIGRATION.md. Do not use the historical cutover steps for the Yuhoo launch. Git repository identifiers and source-sync paths remain accurate historical identifiers.
+
+---
+
 # Nexavoris website — Vercel-viable copy
 
 **A standard Next.js app, kept deliberately separate from `07 Website\`.**

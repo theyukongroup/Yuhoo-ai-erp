@@ -378,7 +378,7 @@ export function MemberDashboard({
   const config = industryConfig[key];
   const firstName = data.profile.firstName || name?.split(' ')[0] || email.split('@')[0];
   const ui = {
-    personalize: locale === 'es' ? 'Personalice su experiencia Nexavoris' : locale === 'zh-cn' ? '个性化您的 Nexavoris 体验' : locale === 'zh-tw' ? '個人化您的 Nexavoris 體驗' : 'Personalize Your Nexavoris Experience',
+    personalize: locale === 'es' ? 'Personalice su experiencia Yuhoo' : locale === 'zh-cn' ? '个性化您的 Yuhoo 体验' : locale === 'zh-tw' ? '個人化您的 Yuhoo 體驗' : 'Personalize Your Yuhoo Experience',
     ask: locale === 'es' ? '¿Qué industria describe mejor su empresa?' : locale === 'zh-cn' ? '哪个行业最符合您的业务？' : locale === 'zh-tw' ? '哪個行業最符合您的業務？' : 'What industry best describes your business?',
     recommended: locale === 'es' ? 'Herramientas recomendadas para su industria' : locale === 'zh-cn' ? '为您的行业推荐的工具' : locale === 'zh-tw' ? '為您的行業推薦的工具' : 'Recommended Tools for My Industry',
     top: locale === 'es' ? 'Principales oportunidades' : locale === 'zh-cn' ? '主要机会' : locale === 'zh-tw' ? '主要機會' : 'Top Opportunities',
@@ -387,7 +387,7 @@ export function MemberDashboard({
   return (
     <main className="member-shell">
       <aside className="member-sidebar">
-        <h2>Nexavoris</h2>
+        <h2>Yuhoo</h2>
         <span>{name || email}</span>
         <nav>
           {(
@@ -799,7 +799,7 @@ function ROITool({
 
 function RoadmapTool({
   locale,
-  data,
+  data: _data,
   industry,
   onSave,
 }: {

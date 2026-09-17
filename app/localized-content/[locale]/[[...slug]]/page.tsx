@@ -26,15 +26,15 @@ const pages = {
 };
 
 const seo = {
-  '': ['Nexavoris | AI & ERP Systems', 'Private enterprise AI, ERP implementation, and intelligent business automation for growing companies.'],
-  about: ['About', 'Meet Nexavoris: practical AI, ERP, automation, and long-term technology partnership for operational businesses.'],
+  '': ['Yuhoo | AI & ERP Systems', 'Private enterprise AI, ERP implementation, and intelligent business automation for growing companies.'],
+  about: ['About', 'Meet Yuhoo: practical AI, ERP, automation, and long-term technology partnership for operational businesses.'],
   'ai-erp': ['AI + ERP Integration', 'Connect private AI to live ERP data and controlled business workflows.'],
   'ai-solutions': ['Private Enterprise AI Solutions', 'Secure company knowledge AI, SOP search, document intelligence, and AI automation.'],
-  contact: ['Contact Nexavoris', 'Discuss private AI, ERP, automation, equipment, or website design requirements with Nexavoris.'],
-  equipment: ['Business Server Equipment', 'The practical on-premises server platforms Nexavoris recommends for Odoo ERP and private AI workloads.'],
+  contact: ['Contact Yuhoo', 'Discuss private AI, ERP, automation, equipment, or website design requirements with Yuhoo.'],
+  equipment: ['Business Server Equipment', 'The practical on-premises server platforms Yuhoo recommends for Odoo ERP and private AI workloads.'],
   'erp-solutions': ['ERP Consulting & Implementation', 'ERP consulting, Odoo implementation, integration, migration, training, and support.'],
-  industries: ['Industries', 'See how Nexavoris combines AI, ERP, and workflow automation for distribution, field service, construction, retail, manufacturing, and service companies.'],
-  pricing: ['Pricing', 'Planning-level pricing for private enterprise AI, ERP implementation, and ongoing Nexavoris support.'],
+  industries: ['Industries', 'See how Yuhoo combines AI, ERP, and workflow automation for distribution, field service, construction, retail, manufacturing, and service companies.'],
+  pricing: ['Pricing', 'Planning-level pricing for private enterprise AI, ERP implementation, and ongoing Yuhoo support.'],
   'website-design': ['Website Design Services & Pricing', 'Professional website design, ecommerce, integrations, and ongoing optimization with clear project pricing.'],
 } as const;
 

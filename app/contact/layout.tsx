@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = pageMetadata(
-  'Contact Nexavoris',
-  'Discuss private AI, ERP, automation, equipment, or website design requirements with Nexavoris.',
+  'Contact Yuhoo',
+  'Discuss private AI, ERP, automation, equipment, or website design requirements with Yuhoo.',
   '/contact',
 );
 

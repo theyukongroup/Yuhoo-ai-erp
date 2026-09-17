@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 
-export const SITE_URL = 'https://nexavoris.ai';
+import { siteConfig } from '@/lib/site-config';
+export const SITE_URL = siteConfig.url;
 
 export const marketingRoutes = [
   '',
@@ -34,7 +35,7 @@ export const resourceRoutes = [
 ] as const;
 
 export const authorityRoutes = [
-  '/case-studies', '/how-nexavoris-works',
+  '/case-studies', '/how-yuhoo-works',
   '/methodology/ai-erp-readiness', '/methodology/roi-calculator',
   '/trust', '/privacy', '/terms', '/industries/restaurants',
 ] as const;
@@ -65,25 +66,25 @@ export function pageMetadata(
   path: string,
 ): Metadata {
   const canonical = `${SITE_URL}${path || '/'}`;
-  const fullTitle = title.startsWith('Nexavoris |') ? title : `${title} | Nexavoris`;
+  const fullTitle = (title.startsWith('Yuhoo |') || title.startsWith('Yuhoo.ai |')) ? title : `${title} | Yuhoo.ai`;
   return {
-    title: title.startsWith('Nexavoris |') ? { absolute: title } : title,
+    title: (title.startsWith('Yuhoo |') || title.startsWith('Yuhoo.ai |')) ? { absolute: title } : title,
     description,
     alternates: { canonical, languages: localizedUrls(path) },
     openGraph: {
       title: fullTitle,
       description,
       url: canonical,
-      siteName: 'Nexavoris',
+      siteName: 'Yuhoo.ai',
       type: 'website',
       locale: 'en_US',
       alternateLocale: ['zh_CN', 'zh_TW', 'es'],
       images: [
         {
-          url: `${SITE_URL}/og.png`,
-          width: 1200,
-          height: 630,
-          alt: 'Nexavoris AI and ERP systems',
+          url: `${SITE_URL}/yuhoo-logo.webp`,
+          width: 1000,
+          height: 320,
+          alt: 'Yuhoo AI and ERP systems',
         },
       ],
     },
@@ -91,7 +92,7 @@ export function pageMetadata(
       card: 'summary_large_image',
       title: fullTitle,
       description,
-      images: [`${SITE_URL}/og.png`],
+      images: [`${SITE_URL}/yuhoo-logo.webp`],
     },
   };
 }
