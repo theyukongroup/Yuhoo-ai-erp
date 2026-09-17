@@ -21,7 +21,9 @@ export type AdminActor = {
 function bootstrapEmails() {
   return new Set(
     requireEnv('NEXAVORIS_ADMIN_EMAILS')
-      .split(',')
+      // Tolerate commas, semicolons or newlines: a stray separator would
+      // otherwise silently drop every administrator after the first.
+      .split(/[\s,;]+/)
       .map((email) => email.trim().toLowerCase())
       .filter(Boolean),
   );
