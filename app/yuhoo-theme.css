@@ -114,13 +114,20 @@ footer{background:var(--yuhoo-surface)}
 .cta .button.secondary{color:var(--yuhoo-on-brand);border-color:var(--yuhoo-on-brand)}.cta .button.secondary:hover{background:var(--yuhoo-primary)}
 footer{padding-top:60px;padding-bottom:45px;background:var(--yuhoo-surface)}.footer-company>p{color:var(--yuhoo-primary);font-size:16px;font-weight:600;max-width:280px}
 @media(min-width:1400px){
-  header{padding-left:max(28px,calc((100vw - 1540px)/2));padding-right:max(28px,calc((100vw - 1540px)/2));gap:18px}
+  header{padding-left:max(28px,calc((100vw - 1240px)/2));padding-right:28px;gap:18px}
   header .desktop-navigation{display:flex!important;gap:18px;margin-right:auto;white-space:nowrap}
   header .desktop-navigation a{font-size:13px}
   header .mobile-menu-button{display:none!important}
   header .desktop-assessment{display:inline-flex!important;white-space:nowrap}
   header>.logo-brand{width:180px;flex-basis:180px;flex-shrink:0;margin-right:12px}
   header>.logo-brand img{width:180px}
+}
+@media(min-width:1800px){
+  header{gap:34px}
+  header>.logo-brand{width:210px;flex-basis:210px;margin-right:0}
+  header>.logo-brand img{width:210px}
+  header .desktop-navigation{gap:28px;margin-right:0}
+  header .desktop-navigation a{font-size:12px}
 }
 @media(min-width:1400px) and (max-width:1599px){
   header{gap:14px}
