@@ -81,9 +81,9 @@ export function pageMetadata(
       alternateLocale: ['zh_CN', 'zh_TW', 'es'],
       images: [
         {
-          url: `${SITE_URL}/yuhoo-logo.webp`,
-          width: 1000,
-          height: 320,
+          url: `${SITE_URL}${siteConfig.ogImage}`,
+          width: siteConfig.ogImageWidth,
+          height: siteConfig.ogImageHeight,
           alt: 'Yuhoo AI and ERP systems',
         },
       ],
@@ -92,7 +92,7 @@ export function pageMetadata(
       card: 'summary_large_image',
       title: fullTitle,
       description,
-      images: [`${SITE_URL}/yuhoo-logo.webp`],
+      images: [`${SITE_URL}${siteConfig.ogImage}`],
     },
   };
 }

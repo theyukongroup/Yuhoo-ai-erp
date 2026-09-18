@@ -64,9 +64,9 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/yuhoo-logo.webp',
-        width: 1000,
-        height: 320,
+        url: '/yuhoo-og.png',
+        width: 1200,
+        height: 630,
         alt: 'Yuhoo AI & ERP Systems',
       },
     ],
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Yuhoo AI & ERP Systems',
     description: 'Private AI, ERP, and automation for operational businesses.',
-    images: ['/yuhoo-logo.webp'],
+    images: ['/yuhoo-og.png'],
   },
 };
 const nav = [
